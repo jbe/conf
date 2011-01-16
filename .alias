@@ -1,0 +1,16 @@
+#!/bin/bash
+
+alias ls='ls --color=auto'
+
+# Handy ls shortcuts
+alias ll='ls -lh'
+alias la='ls -A'
+alias l='ls'
+
+# Moving in dirs
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias s='screen -U -D -R'
+alias shtop='sudo htop'
+alias svim='sudo vim'

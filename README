@@ -1,0 +1,26 @@
+
+
+    ^   ^
+ « .jconf  »         (( http://jostein.be ))
+     ...
+
+
+
+INSTALLATION
+
+In your home directory:
+
+~ $ git clone git://github.com/jbe/.jconf.git
+~ $ .jconf/install
+
+Running .jconf/install adds a line to each *rc file, telling it to source the corresponding file in ~/.jconf/.
+
+
+INCLUDED
+
+.bashrc
+.zshrc
+.vimrc
+.gvimrc
+.screenrc
+.irbrc

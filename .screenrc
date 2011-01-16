@@ -1,0 +1,5 @@
+hardstatus on
+hardstatus alwayslastline
+#hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %d.%m.%y %c "
+hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H (%l) %{..Y} %d.%m.%y %c:%s "
+

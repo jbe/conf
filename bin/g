@@ -1,0 +1,2 @@
+#!/bin/sh
+gvim $@ > /dev/null 2>&1
