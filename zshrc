@@ -1,7 +1,7 @@
 
 # global configuration, share with bash
-source $HOME/.envir
-source $HOME/.alias
+source $HOME/.dotfiles/envir
+source $HOME/.dotfiles/alias
 
 
 

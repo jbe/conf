@@ -1,1 +1,0 @@
-/home/jbe/.vim/gvimrc
