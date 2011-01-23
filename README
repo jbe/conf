@@ -1,0 +1,27 @@
+
+  it's the...
+
+                        ^_^
+
+      ^_^                     ^_^
+
+
+               _vv_
+            .        .
+
+    {{ «« <[ dotfiles ]> »» }}
+            .        .
+               ____
+                ^^
+
+
+    ^_^              ^_^
+
+
+
+INSTALLATION:
+
+
+cd ~
+git clone https://jbe@github.com/jbe/.dotfiles.git
+sh ~/.dotfiles/install
