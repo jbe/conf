@@ -1,7 +1,30 @@
-#!/bin/sh
+#!/bin/bash
+
+
+
+
+
+
 
 ln -s ~/.dotfiles/irbrc ~/.irbrc
 ln -s ~/.dotfiles/screenrc ~/.screenrc
 ln -s ~/.dotfiles/zshrc ~/.zshrc
+
+
+
+
+read -p "Install vim configuration? (y/N)" -n 1
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    exit
+fi
+
+cd ~
+git clone http://github.com/jbe/.vim.git
+ln -s ~/.vim/vimrc ~/.vimrc
+ln -s ~/.vim/gvimrc ~/.gvimrc
+cd ~/.vim
+git submodule init
+git submodule update
 
 echo "ok"
