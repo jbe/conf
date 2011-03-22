@@ -4,16 +4,16 @@
 
 
 
-
-
-ln -s ~/.dotfiles/irbrc ~/.irbrc
-ln -s ~/.dotfiles/screenrc ~/.screenrc
 ln -s ~/.dotfiles/zshrc ~/.zshrc
+ln -s ~/.dotfiles/screenrc ~/.screenrc
+ln -s ~/.dotfiles/dircolors ~/.dircolors
+ln -s ~/.dotfiles/irbrc ~/.irbrc
+ln -s ~/.dotfiles/gemrc ~/.gemrc
 
 
 
 
-read -p "Install vim configuration? (y/N)" -n 1
+read -p "Install Vim configuration from Github? (y/N)" -n 1
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
     exit

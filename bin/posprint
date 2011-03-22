@@ -1,0 +1,2 @@
+#!/bin/sh
+fold --spaces --width=40 < /dev/stdin | enscript --no-header --font=Courier-Bold8 --indent=0p --margins=0:0:0:0 --media=Letter $*
