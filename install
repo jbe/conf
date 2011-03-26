@@ -13,7 +13,7 @@ ln -s ~/.dotfiles/gemrc ~/.gemrc
 
 
 
-read -p "Install Vim configuration from Github? (y/N)" -n 1
+read -p "Install jbe's Vim configuration from Github? (y/N)" -n 1
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
     exit
@@ -26,5 +26,6 @@ ln -s ~/.vim/gvimrc ~/.gvimrc
 cd ~/.vim
 git submodule init
 git submodule update
+vim +BundleInstall +q
 
 echo "ok"
