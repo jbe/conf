@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require 'pp'
+require 'tempfile'
+ 
+string = ''
+string << "vimpipe #{ARGV.join(' ')}\n" if ARGV.any?
+string << STDIN.read unless STDIN.tty?
+
+
+file = Tempfile.new('dummy')
+begin
+  file.write(string)
+ensure
+  file.close
+  Process.spawn "gvim --remote-send '<Esc>:sp #{file.path}<CR>'"
+  sleep 1
+  file.unlink   # deletes the temp file
+end
