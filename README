@@ -1,4 +1,3 @@
-
   it's the...
 
                         ^_^
@@ -19,13 +18,20 @@
 
 
 
-INSTALLATION:
+TO INSTALL:
 
+1. Fork this repo on Github
+2. Paste this into a terminal:
 
 cd ~
-git clone https://jbe@github.com/jbe/.dotfiles.git
+echo "Enter your name on Github:"; git clone git@github.com:`read REPLY; echo $REPLY`/.dotfiles.git;
+
+3. Paste this into a terminal:
+
 sh ~/.dotfiles/install
 
-Also check out my Vim setup:
+
+
+Check out my Vim setup:
 
 https://github.com/jbe/.vim
