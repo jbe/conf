@@ -25,3 +25,7 @@ INSTALLATION:
 cd ~
 git clone https://jbe@github.com/jbe/.dotfiles.git
 sh ~/.dotfiles/install
+
+Also check out my Vim setup:
+
+https://github.com/jbe/.vim
