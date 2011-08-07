@@ -14,18 +14,3 @@ ln -s ~/.dotfiles/Xresources ~/.Xdefaults
 
 
 
-
-read -p "Install jbe's Vim configuration from Github? (y/N)" -n 1
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    exit
-fi
-
-cd ~
-git clone http://github.com/jbe/.vim.git
-ln -s ~/.vim/vimrc ~/.vimrc
-ln -s ~/.vim/gvimrc ~/.gvimrc
-cd ~/.vim
-vim +BundleInstall +q
-
-echo "ok"
