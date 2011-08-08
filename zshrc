@@ -1,8 +1,4 @@
 
-# global configuration, share with bash
-source $HOME/.dotfiles/envir
-source $HOME/.dotfiles/alias
-
 setopt appendhistory autocd extendedglob
 bindkey -v
 
@@ -20,9 +16,14 @@ echo "\n\n\n\n\n\n" # ahh..
 ZSH=$HOME/.oh-my-zsh
 if [[ -s "$ZSH/oh-my-zsh.sh" ]] ; then
     source $HOME/.dotfiles/oh-my-zsh.sh
+    RPROMPT='' # right side
 else
     PROMPT=' %B%.%b %# ' # default prompt
     RPROMPT='%B%n@%M%b' # right side
 fi
+
+# global configuration, share with bash
+source $HOME/.dotfiles/envir
+source $HOME/.dotfiles/alias
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
