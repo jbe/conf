@@ -17,3 +17,6 @@ alias svim='sudo vim'
 
 # For vundle:
 alias vim='env GIT_SSL_NO_VERIFY=true vim'
+
+alias uio="ssh josteibe@login.ifi.uio.no"
+alias 1060="ssh josteibe@login.ifi.uio.no \"ssh inf1060@login.ifi\""
