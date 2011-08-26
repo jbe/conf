@@ -15,5 +15,8 @@ alias s='screen -U -D -R'
 alias shtop='sudo htop'
 alias svim='sudo vim'
 
+alias gac='git add -A && git commit'
+alias gacp='git add -A && git commit && git push'
+
 # For vundle:
 alias vim='env GIT_SSL_NO_VERIFY=true vim'
