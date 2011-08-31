@@ -5,6 +5,7 @@
 
 
 ln -s ~/.dotfiles/zshrc ~/.zshrc
+ln -s ~/.dotfiles/bashrc ~/.bashrc
 ln -s ~/.dotfiles/screenrc ~/.screenrc
 ln -s ~/.dotfiles/dircolors ~/.dircolors
 ln -s ~/.dotfiles/irbrc ~/.irbrc
