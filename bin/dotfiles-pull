@@ -1,7 +1,4 @@
 #!/bin/sh
 
-cd ~/.vim
-git pull
-
 cd ~/.dotfiles
 git pull
