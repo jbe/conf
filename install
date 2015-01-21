@@ -3,18 +3,19 @@
 
 
 
-ln -s ~/.dotfiles/vimrc.local ~/.vimrc.local
-ln -s ~/.dotfiles/vimrc.bundles.local ~/.vimrc.bundles.local
+# TODO: Offer Vim install script
+
 
 ln -s ~/.dotfiles/bashrc ~/.bashrc
-ln -s ~/.dotfiles/screenrc ~/.screenrc
-ln -s ~/.dotfiles/dircolors ~/.dircolors
-ln -s ~/.dotfiles/irbrc ~/.irbrc
-ln -s ~/.dotfiles/gemrc ~/.gemrc
+ln -s ~/.dotfiles/zshrc ~/.zshrc
+
 ln -s ~/.dotfiles/Xresources ~/.Xresources
 ln -s ~/.dotfiles/Xresources ~/.Xdefaults
+ln -s ~/.dotfiles/dircolors ~/.dircolors
+ln -s ~/.dotfiles/screenrc ~/.screenrc
+
+ln -s ~/.dotfiles/irbrc ~/.irbrc
+ln -s ~/.dotfiles/gemrc ~/.gemrc
 
 ln -s ~/.dotfiles/lcirc ~/.lcirc
-
-
 
