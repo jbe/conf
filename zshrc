@@ -19,7 +19,7 @@ if [[ -s "$ZSH/oh-my-zsh.sh" ]] ; then
     RPROMPT='' # right side
 else
     PROMPT=' %B%.%b %# ' # default prompt
-    RPROMPT='%B%n@%M%b' # right side
+    RPROMPT='%n@%M%b' # right side
 fi
 
 # global configuration, share with bash
