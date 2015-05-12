@@ -53,21 +53,12 @@ ask "Use ZSH?"
 use_zsh=$?
 
 
-
 # INSTALLER LOGIC
 
 sudo apt-get install git zsh tree htop most curl wget ctags 
 
 if [ "$install_graphical" -eq 0 ]; then
   sudo apt-get install vim-gnome chromium-browser
-fi
-
-if [ "$install_dev" -eq 0 ]; then
-  gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-  \curl -sSL https://get.rvm.io | bash -s stable --ruby
-  rvm install ruby-2.2.1
-
-  curl https://install.meteor.com/ | sh
 fi
 
 if [ "$make_ssh_key" -eq 0 ]; then
@@ -80,7 +71,6 @@ if [ "$make_ssh_key" -eq 0 ]; then
   echo "Press any key after uploading.."
   read -n
 fi
-
 
 if [ "$install_configuration" -eq 0 ]; then
   cd ~
@@ -106,9 +96,25 @@ if [ "$install_configuration" -eq 0 ]; then
   vim +BundleInstall +q
 fi
 
-
 if [ "$use_zsh" -eq 0 ]; then
   echo "Switching to zsh.."
   chsh -s `which zsh`
+fi
+
+if [ "$install_dev" -eq 0 ]; then
+  curl https://install.meteor.com/ | sh
+
+  cd ~/Documents
+  git clone -b master git://github.com/Araq/Nim.git
+  cd Nim
+  git clone -b master --depth 1 git://github.com/nim-lang/csources
+  cd csources && sh build.sh
+  cd ..
+  bin/nim c koch
+  ./koch boot -d:release
+
+  gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+  \curl -sSL https://get.rvm.io | bash -s stable --ruby
+  rvm install ruby-2.2.1
 fi
 
