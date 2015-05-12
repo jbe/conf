@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd ~/.vim
+git add -A && git commit && git push
