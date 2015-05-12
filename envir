@@ -5,6 +5,7 @@
 export PAGER="most"
 
 export PATH="$PATH:$HOME/.cabal/bin:$HOME/bin:$HOME/.dotfiles/bin"
+export PATH="$PATH:$HOME/Documents/Nim/bin"
 
 export EDITOR="vim"
 export RI="--format ansi"

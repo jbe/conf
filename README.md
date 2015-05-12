@@ -16,20 +16,10 @@
 
 
 
-**To install:**
+These are my personal dotfiles, and an installer/configurizer that i use to quickly christen new boxen. The dirty one-liner is:
 
-1. Fork this repo on Github
-2. Paste this into a terminal:
-
-```bash
-cd ~; echo "Enter your name on Github:"; git clone git@github.com:`read REPLY; echo $REPLY`/.dotfiles.git
-```
-
-3. Paste this into a terminal: `sh ~/.dotfiles/install`
+    curl https://raw.githubusercontent.com/jbe/.dotfiles/master/install.sh | sh
 
 
-**See also:**
-
-* [Vim configuration](https://github.com/jbe/.vim)
-* [Bootstrap script](https://gist.github.com/1132564)
+**See also:** [Vim configuration](https://github.com/jbe/.vim)
 

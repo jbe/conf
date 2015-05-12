@@ -1,7 +1,0 @@
-
-set guifont="DejaVu Sans Mono for Powerline 11"
-"color jellybeans
-color solarized
-
-
-autocmd BufRead,BufNewFile   *.nim set ft=nimrod
