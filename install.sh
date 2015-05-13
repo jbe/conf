@@ -55,7 +55,7 @@ use_zsh=$?
 
 # INSTALLER LOGIC
 
-sudo apt-get install git zsh tree htop most curl wget ctags 
+sudo apt-get install -y git zsh tree htop most curl wget ctags python-pip
 
 if [ "$install_graphical" -eq 0 ]; then
   sudo apt-get install vim-gnome chromium-browser
@@ -93,7 +93,7 @@ if [ "$install_configuration" -eq 0 ]; then
   ln -s ~/.vim/vimrc ~/.vimrc
   ln -s ~/.vim/gvimrc ~/.gvimrc
 
-  vim +BundleInstall +q
+  vim +PlugInstall +q
 fi
 
 if [ "$use_zsh" -eq 0 ]; then
