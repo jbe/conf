@@ -11,9 +11,10 @@ alias l='ls'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-alias s='screen -U -D -R'
+alias t='tmux -2 attach'
 alias shtop='sudo htop'
-alias svim='sudo vim'
+alias sv='sudo vim'
+alias v='vim'
 
 alias gac='git add -A && git commit'
 alias gacp='git add -A && git commit && git push'
