@@ -18,21 +18,14 @@ local reset white gray green red
 
 reset="%{${reset_color}%}"
 white="%{$fg[white]%}"
-gray="%{$fg_bold[black]%}"
-green="%{$fg_bold[green]%}"
+gray="%{$fg[grey]%}"
+green="%{$fg[green]%}"
+blue="%{$fg[blue]%}"
 red="%{$fg[red]%}"
 yellow="%{$fg[yellow]%}"
 
-
-
-ZSH=$HOME/.oh-my-zsh
-if [[ -s "$ZSH/oh-my-zsh.sh" ]] ; then
-    source $HOME/.dotfiles/oh-my-zsh.sh
-    RPROMPT='' # right side
-else
-    PROMPT=$'\n'$'\n'" ${gray}%n@%M%b${reset}"$'\n'" %B%.%b %# " # default prompt
-    RPROMPT='' # right side
-fi
+PROMPT=$'\n'$'\n'" %F{cyan}%n${yellow}@${green}%M%b${reset}"$'\n'" %B%.%b %# " # default prompt
+RPROMPT='' # right side
 
 # global configuration, share with bash
 source $HOME/.dotfiles/envir
