@@ -55,7 +55,7 @@ use_zsh=$?
 
 # INSTALLER LOGIC
 
-sudo apt-get install -y git zsh tree htop most curl wget ctags python-pip
+sudo apt-get install -y git zsh tmux tree htop most curl wget ctags python-pip
 
 if [ "$install_graphical" -eq 0 ]; then
   sudo apt-get install vim-gnome chromium-browser
