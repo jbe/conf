@@ -24,12 +24,16 @@ blue="%{$fg[blue]%}"
 red="%{$fg[red]%}"
 yellow="%{$fg[yellow]%}"
 
-PROMPT=$'\n'$'\n'" %F{cyan}%n${yellow}@${green}%M%b${reset}"$'\n'" %B%.%b %# " # default prompt
-RPROMPT='' # right side
-
 # global configuration, share with bash
 source $HOME/.dotfiles/envir
 source $HOME/.dotfiles/alias
+source $HOME/.dotfiles/zsh/plugins/*.zsh
+source $HOME/.dotfiles/zsh/plugins/zsh-git-prompt/zshrc.sh
+source $HOME/.dotfiles/zsh/key_bindings.zsh
+
+# default prompt
+PROMPT=$'\n\n %F{cyan}%n${yellow}@${green}%M%b${reset} $(git_super_status)\n %B%.%b %# '
+RPROMPT='' # right side
 
 [[ -s "$HOME/.local_shell" ]] && . "$HOME/.local_shell"
 
@@ -39,4 +43,3 @@ source $HOME/.dotfiles/alias
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 eval "$(rbenv init -)"
-
