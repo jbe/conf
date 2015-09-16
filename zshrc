@@ -1,6 +1,10 @@
 
-setopt autocd extendedglob share_history
+setopt autocd extendedglob share_history extended_history
 bindkey -v
+
+HISTFILE=$HOME/.zhistory   # enable history saving on shell exit
+HISTSIZE=1200              # lines of history to maintain memory
+SAVEHIST=1000              # lines of history to maintain in history file.
 
 # colorful listings
 zmodload -i zsh/complist
