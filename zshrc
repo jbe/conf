@@ -1,5 +1,5 @@
 
-setopt appendhistory autocd extendedglob
+setopt autocd extendedglob share_history
 bindkey -v
 
 # colorful listings
@@ -40,6 +40,6 @@ RPROMPT='' # right side
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 eval "$(rbenv init -)"
