@@ -85,7 +85,7 @@ if [ "$install_configuration" -eq 0 ]; then
   ln -s ~/.dotfiles/bashrc ~/.bashrc
   ln -s ~/.dotfiles/zshrc ~/.zshrc
   ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
-  ln -s ~/.dotfiles/Xresources ~/.Xresources
+  #ln -s ~/.dotfiles/Xresources ~/.Xresources
   #ln -s ~/.dotfiles/Xresources ~/.Xdefaults
   ln -s ~/.dotfiles/xprofile .xprofile
 
