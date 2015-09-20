@@ -22,7 +22,7 @@ local reset white gray green red
 
 reset="%{${reset_color}%}"
 white="%{$fg[white]%}"
-gray="%{$fg[grey]%}"
+gray="%{$fg_bold[black]%}"
 green="%{$fg[green]%}"
 blue="%{$fg[blue]%}"
 red="%{$fg[red]%}"
@@ -36,7 +36,7 @@ source $HOME/.dotfiles/zsh/plugins/zsh-git-prompt/zshrc.sh
 source $HOME/.dotfiles/zsh/key_bindings.zsh
 
 # default prompt
-PROMPT=$'\n\n %F{cyan}%n${yellow}@${green}%M%b${reset} $(git_super_status)\n %B%.%b %# '
+PROMPT=$' ${gray}%n@%M%b${reset}\n $(git_super_status) %B%.%b %# '
 RPROMPT='' # right side
 
 [[ -s "$HOME/.local_shell" ]] && . "$HOME/.local_shell"
