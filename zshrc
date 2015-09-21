@@ -14,8 +14,7 @@ alias mv='nocorrect mv'       # no spelling correction on mv
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
 
-
-echo "\n\n\n\n" # ahh..
+# echo "\n\n" # ahh..
 
 autoload -U colors && colors
 local reset white gray green red
@@ -47,3 +46,4 @@ RPROMPT='' # right side
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 eval "$(rbenv init -)"
+source $HOME/.dotfiles/boot.sh
