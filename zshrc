@@ -45,5 +45,9 @@ RPROMPT='' # right side
 
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-eval "$(rbenv init -)"
-source $HOME/.dotfiles/boot.sh
+if (( $+commands[rbenv] )) ; then
+	eval "$(rbenv init -)"
+fi
+if (( $+commands[toilet] )) ; then
+	toilet -F gay `hostname`
+fi
