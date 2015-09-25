@@ -6,6 +6,10 @@ else
     alias ls='ls -G'
 fi
 
+alias ga='git add'
+alias gc='git commit'
+alias gs='git status'
+
 # Handy ls shortcuts
 alias ll='ls -lh'
 alias la='ls -A'
