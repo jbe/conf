@@ -10,4 +10,4 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export EDITOR="vim"
 export RI="--format ansi"
 
-[[ -s "$HOME/.me" ]] && . "$HOME/me/dotfiles/envir"
+[[ -s "$HOME/me" ]] && . "$HOME/me/dotfiles/envir"
