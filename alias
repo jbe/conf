@@ -1,6 +1,10 @@
 #!/bin/bash
 
-alias ls='ls --color=auto'
+if ls --version 2>/dev/null | grep -q 'coreutils'; then
+    alias ls='ls --color=auto'
+else
+    alias ls='ls -G'
+fi
 
 # Handy ls shortcuts
 alias ll='ls -lh'
@@ -12,17 +16,24 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 alias t='tmux -2 attach'
+alias tm='tmux -2'
+alias tn='tmux new-window'
+alias ts='tmux split-window'
+
 alias shtop='sudo htop'
-alias sv='sudo vim'
 alias v='vim'
+alias sv='sudo vim'
 
-alias gac='git add -A && git commit'
-alias gacp='git add -A && git commit && git push'
+# Nim build scripts
+alias cook='./cook'
 
+alias ga='git add'
+alias gc='git commit'
+alias gs='git status'
+#alias gac='git add -A && git commit'
+#alias gacp='git add -A && git commit && git push'
 # For vundle:
 alias vim='env GIT_SSL_NO_VERIFY=true vim'
-
-alias cook='./cook'
 
 alias uio="ssh -Y josteibe@login.ifi.uio.no"
 alias hemulen="ssh -Y s.jostein.be"

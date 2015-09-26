@@ -1,11 +1,13 @@
 #!/bin/bash
 
-# PS1='\u@\h \W \ '
-
 export PAGER="most"
 
-export PATH="$PATH:$HOME/.cabal/bin:$HOME/bin:$HOME/.dotfiles/bin"
-export PATH="$PATH:$HOME/Documents/Nim/bin"
+export PATH="$PATH:$HOME/bin:$HOME/.dotfiles/bin"
+export PATH="$PATH:$HOME/ext-repos/bin"
+export PATH="$PATH:$HOME/.cabal/bin"
+export PATH="$HOME/.rbenv/bin:$PATH"
 
 export EDITOR="vim"
 export RI="--format ansi"
+
+[[ -s "$HOME/me" ]] && . "$HOME/me/dotfiles/envir"

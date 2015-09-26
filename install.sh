@@ -55,7 +55,7 @@ use_zsh=$?
 
 # INSTALLER LOGIC
 
-sudo apt-get install -y git zsh tree htop most curl wget ctags python-pip
+sudo apt-get install -y git zsh tmux tree htop most curl wget ctags python-pip
 
 if [ "$install_graphical" -eq 0 ]; then
   sudo apt-get install vim-gnome chromium-browser
@@ -85,7 +85,7 @@ if [ "$install_configuration" -eq 0 ]; then
   ln -s ~/.dotfiles/bashrc ~/.bashrc
   ln -s ~/.dotfiles/zshrc ~/.zshrc
   ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
-  ln -s ~/.dotfiles/Xresources ~/.Xresources
+  #ln -s ~/.dotfiles/Xresources ~/.Xresources
   #ln -s ~/.dotfiles/Xresources ~/.Xdefaults
   ln -s ~/.dotfiles/xprofile .xprofile
 
