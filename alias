@@ -22,6 +22,8 @@ alias gacp='git add -A && git commit && git push'
 # For vundle:
 alias vim='env GIT_SSL_NO_VERIFY=true vim'
 
+alias cook='./cook'
+
 alias uio="ssh -Y josteibe@login.ifi.uio.no"
 alias hemulen="ssh -Y s.jostein.be"
 alias uiowin="rdesktop -d UiO -f windows.ifi.uio.no"
