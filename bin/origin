@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+#
+# ORIGIN -- manage origin repositories
+
+def nasty_require(*gems)
+  gems.map(&:to_s).each do |gem|
+    begin
+      require gem
+    rescue LoadError
+      puts " > installing # {gem}"
+      system "gem install #{gem}"
+      require gem
+    end
+  end
+end
+
+nasty_require :thor
+require 'fileutils'
+
+ORIGINS = File.join Dir.home, 'origins'
+
+FileUtils.mkdir_p(ORIGINS)
+
+def path(*parts)
+  File.join(*([ORIGINS] + parts))
+end
+
+class Origin < Thor
+  desc 'init NAME', 'create a new repository'
+  def init(name)
+    full = path(name)
+    if File.directory? full
+      puts "#{full} already exists on #{`hostname`.rstrip}"
+    else
+      system "cd #{ORIGINS} && git init --bare #{name}"
+    end
+  end
+
+  desc 'rm NAME', 'delete an existing repository'
+  def rm(name)
+    full = path(name)
+    if File.directory? full
+      puts "About to delete #{full} from #{`hostname`.rstrip} (y/N)?"
+      FileUtils.rm_rf(full) if /^y/ =~ STDIN.gets
+    else
+      puts "#{name} does not exist on #{`hostname`.rstrip}"
+    end
+  end
+
+  desc 'ls', 'list all central repositories'
+  def list
+    system 'ls', ORIGINS
+  end
+end
+
+Origin.start ARGV
