@@ -48,7 +48,7 @@ class Origin < Thor
   end
 
   desc 'ls', 'list all central repositories'
-  def list
+  def ls
     system 'ls', ORIGINS
   end
 end
