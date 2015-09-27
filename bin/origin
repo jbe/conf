@@ -31,6 +31,11 @@ class Origin < Thor
     system "git remote add origin #{host}:#{path(name)} && git push origin master"
   end
 
+  desc 'clone HOST NAME', 'clone something from the origin server'
+  def clone(host, name)
+    system "git clone #{host}:#{path(name)}"
+  end
+
   desc 'mk NAMES...', 'create a new repository'
   def mk(*names)
     names.each do |name|

@@ -1,6 +1,13 @@
 #!/bin/sh
-if [ $1 = "mote" ]; then
-  origin $@
-else
-  on hemulen origin $@
-fi
+#
+# ori -- run origin on the right host
+#        depending on the command
+
+case $1 in
+  mote|clone)
+    origin $@
+    ;;
+  *)
+    on hemulen origin $@
+    ;;
+esac
