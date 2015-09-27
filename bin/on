@@ -6,7 +6,7 @@ else
   HOST=$(hostname)
   shift
   if [ "$TARGET" = $HOST ]; then
-    $SHELL -c $@
+    eval "$@"
   else
     ssh $TARGET "zsh -i -c '$@'"
   fi
