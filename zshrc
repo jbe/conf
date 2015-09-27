@@ -31,7 +31,7 @@ yellow="%{$fg[yellow]%}"
 source $HOME/.dotfiles/envir
 source $HOME/.dotfiles/alias
 
-if [[ $ROBOT_SSH -ne "yes" ]] ; then # exclude ssh pipe etc
+if [ ! "$ROBOT_SSH" = 'yes' ]; then # exclude ssh pipe etc
   source $HOME/.dotfiles/zsh/plugins/*.zsh
   source $HOME/.dotfiles/zsh/plugins/zsh-git-prompt/zshrc.sh
   source $HOME/.dotfiles/zsh/key_bindings.zsh
