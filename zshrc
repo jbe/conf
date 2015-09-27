@@ -30,9 +30,12 @@ yellow="%{$fg[yellow]%}"
 # global configuration, share with bash
 source $HOME/.dotfiles/envir
 source $HOME/.dotfiles/alias
-source $HOME/.dotfiles/zsh/plugins/*.zsh
-source $HOME/.dotfiles/zsh/plugins/zsh-git-prompt/zshrc.sh
-source $HOME/.dotfiles/zsh/key_bindings.zsh
+
+if [[ $terminfo ]] ; then # exclude ssh pipe etc
+  source $HOME/.dotfiles/zsh/plugins/*.zsh
+  source $HOME/.dotfiles/zsh/plugins/zsh-git-prompt/zshrc.sh
+  source $HOME/.dotfiles/zsh/key_bindings.zsh
+fi
 
 # default prompt
 PROMPT=$' ${gray}%n@%M%b${reset}\n $(git_super_status) %B%.%b %# '
