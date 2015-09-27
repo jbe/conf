@@ -28,7 +28,7 @@ end
 class Origin < Thor
   desc 'mote HOST NAME', 'add a remote origin'
   def mote(host, name)
-    system "git remote add origin #{host}:#{path(name)} && git push origin master"
+    system "git remote add origin #{host}:#{path(name)} && git push --set-upstream origin master"
   end
 
   desc 'clone HOST NAME', 'clone something from the origin server'
