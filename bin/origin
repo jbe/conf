@@ -26,13 +26,15 @@ def path(*parts)
 end
 
 class Origin < Thor
-  desc 'init NAME', 'create a new repository'
-  def init(name)
-    full = path(name)
-    if File.directory? full
-      puts "#{full} already exists on #{`hostname`.rstrip}"
-    else
-      system "cd #{ORIGINS} && git init --bare #{name}"
+  desc 'mk NAMES...', 'create a new repository'
+  def mk(*names)
+    names.each do |name|
+      full = path(name)
+      if File.directory? full
+        puts "#{full} already exists on #{`hostname`.rstrip}"
+      else
+        system "cd #{ORIGINS} && git init --bare #{name}"
+      end
     end
   end
 
