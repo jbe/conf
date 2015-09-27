@@ -8,10 +8,10 @@ else
   if [ "$TARGET" = $HOST ]; then
     eval "$@"
   else
-    ssh $TARGET "zsh -i -c '$@'"
+    ROBOT_SSH=true
+    ssh -o SendEnv=ROBOT_SSH $TARGET "zsh -i -c '$@'"
   fi
 fi
-
 # Copyright 2015 Jostein Berre Eliassen
 # 
 # This is free and unencumbered software released into the public domain.
