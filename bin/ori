@@ -1,2 +1,6 @@
 #!/bin/sh
-on hemulen origin $@
+if [ $1 = "mote" ]; then
+  origin $@
+else
+  on hemulen origin $@
+fi
