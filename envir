@@ -10,4 +10,5 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export EDITOR="vim"
 export RI="--format ansi"
 
-[[ -s "$HOME/me" ]] && . "$HOME/me/dotfiles/envir"
+[[ -s "$HOME/me/dotfiles/HOSTS" ]] && export HOSTALIASES=~/me/dotfiles/HOSTS
+[[ -s "$HOME/me/dotfiles/envir" ]] && . "$HOME/me/dotfiles/envir"

@@ -40,14 +40,6 @@ RPROMPT='' # right side
 
 [[ -s "$HOME/.local_shell" ]] && . "$HOME/.local_shell"
 
-# This loads RVM into a shell session.
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
-# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 if (( $+commands[rbenv] )) ; then
 	eval "$(rbenv init -)"
-fi
-if (( $+commands[toilet] )) ; then
-	toilet -F gay `hostname`
 fi
