@@ -8,7 +8,7 @@ else
   if [ "$TARGET" = $HOST ]; then
     $SHELL -c $@
   else
-    ssh $TARGET -t $@
+    ssh $TARGET "zsh -i -c '$@'"
   fi
 fi
 
