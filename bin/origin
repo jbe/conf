@@ -59,9 +59,21 @@ class Origin < Thor
     end
   end
 
+  desc 'mv NAME', 'delete an existing repository'
+  def mv(from, to)
+    full_from = path(from)
+    full_to   = path(to)
+    if File.directory? full_from
+      puts "About to move #{full_from} to #{full_to} on #{`hostname`.rstrip} (y/N)?"
+      FileUtils.mv(full_from, full_to) if /^y/ =~ STDIN.gets
+    else
+      puts "#{name} does not exist on #{`hostname`.rstrip}"
+    end
+  end
+
   desc 'ls', 'list all central repositories'
   def ls
-    system 'ls', ORIGINS
+    system 'ls', '-Ah', ORIGINS
   end
 end
 
