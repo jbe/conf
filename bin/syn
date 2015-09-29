@@ -5,9 +5,10 @@ def nasty_require(*gems)
     begin
       require gem
     rescue LoadError
-      puts " > installing # {gem}"
+      puts " > installing #{gem}"
       system "gem install #{gem}"
-      require gem
+      system $0, *ARGV
+      exit
     end
   end
 end
