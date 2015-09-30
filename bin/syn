@@ -22,8 +22,7 @@ def megasync(hardcore, *paths)
       Dir.chdir(dir)
       GitUp.new.run([])
       if hardcore
-        system "cd #{dir} && git add -A && git commit"
-        system "cd #{dir} && git push"
+        system "sh -c 'cd #{dir} && git add -A && git commit && git push'"
       end
     else
       puts "Not a directory: #{dir}"
@@ -41,5 +40,5 @@ if ARGV.empty?
     File.join(Dir.home, p)
   end)
 else
-  megasync_dir(ARGV)
+  megasync_dir(ARGV.map {|d| File.expand_path(d) })
 end
