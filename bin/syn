@@ -32,18 +32,14 @@ def megasync(hardcore, *paths)
   end
 end
 
-def maintain
-  megasync(false, *%w(.vim .dotfiles me).map do |p|
-    File.join(Dir.home, p)
-  end)
-
-  %w(repos).each do |f|
-    megasync(false, *Dir[File.join Dir.home, f,'*/'])
-  end
+def megasync_dir(dir)
+  megasync(false, *Dir[File.join dir,'*/'])
 end
 
 if ARGV.empty?
-  maintain
+  megasync(true, *%w(.vim .dotfiles .priv).map do |p|
+    File.join(Dir.home, p)
+  end)
 else
-  megasync(ARGV.map {|p| File.join(Dir.pwd, p) })
+  megasync_dir(ARGV)
 end
