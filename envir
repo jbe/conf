@@ -11,4 +11,5 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export EDITOR="vim"
 export RI="--format ansi"
 
+[[ -s "$HOME/.env.local" ]] && . "$HOME/.env.local"
 [[ -s "$HOME/.priv/dotfiles/envir" ]] && . "$HOME/.priv/dotfiles/envir"
