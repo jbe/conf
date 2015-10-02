@@ -26,7 +26,6 @@ def megasync(hardcore, *paths)
       end
     else
       puts "Not a directory: #{dir}"
-      exit
     end
   end
 end
@@ -36,7 +35,7 @@ def megasync_dir(dir)
 end
 
 if ARGV.empty?
-  megasync(true, *%w(.vim .dotfiles .priv).map do |p|
+  megasync(true, *%w(.vim .dotfiles .priv me).map do |p|
     File.join(Dir.home, p)
   end)
 else
