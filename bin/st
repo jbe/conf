@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+if %x{wc -l ~/.priv/notes/Viktig}.split.first.to_i > 2
+  puts "\nTODO:"
+  system 'tail -n+2 ~/.priv/notes/Viktig | awk \'$0="  "$0\''
+end
