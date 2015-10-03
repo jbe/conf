@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
-if %x{wc -l ~/.priv/notes/Viktig}.split.first.to_i > 2
-  puts "\nTODO:"
-  system 'tail -n+2 ~/.priv/notes/Viktig | awk \'$0="  "$0\''
+TODO_PATH = File.join(Dir.home, "me/notes/Viktig")
+
+if File.file?(TODO_PATH) && %x{wc -l #{TODO_PATH}}.split.first.to_i > 2
+  puts "\n  Remember.."
+  system "tail -n+2 #{TODO_PATH} | awk '$0=\"  \"$0'"
 end
