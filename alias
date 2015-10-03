@@ -15,8 +15,6 @@ alias l='ls'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-alias t='tmux -2 attach'
-alias tm='tmux -2'
 alias tn='tmux new-window'
 alias ts='tmux split-window'
 

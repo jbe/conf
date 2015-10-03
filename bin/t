@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Run tmux or begin a new session in 256 color mode
+
+if has tmux; then
+   tmux_running || tmux -2 attach || tmux -2
+else
+  echo " > tmux not available"
+fi
+
+

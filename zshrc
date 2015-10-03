@@ -46,3 +46,5 @@ RPROMPT='' # right side
 if (( $+commands[rbenv] )) ; then
 	eval "$(rbenv init -)"
 fi
+
+t

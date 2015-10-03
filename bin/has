@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# returns whether or not a command is available
+
+if type $1 >/dev/null 2>/dev/null; then
+  exit 0
+else
+  exit 1
+fi
