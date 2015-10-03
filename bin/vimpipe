@@ -13,7 +13,7 @@ begin
   file.write(string)
 ensure
   file.close
-  Process.spawn "gvim --remote-send '<Esc>:sp #{file.path}<CR>'"
+  Process.spawn "vim --remote-send '<Esc>:sp #{file.path}<CR>'"
   sleep 1
   file.unlink   # deletes the temp file
 end
