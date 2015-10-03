@@ -14,8 +14,6 @@ alias mv='nocorrect mv'       # no spelling correction on mv
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
 
-# echo "\n\n" # ahh..
-
 autoload -U colors && colors
 local reset white gray green red
 
@@ -31,11 +29,9 @@ yellow="%{$fg[yellow]%}"
 source $HOME/.dotfiles/envir
 source $HOME/.dotfiles/alias
 
-if [ ! "$ROBOT_SSH" = 'yes' ]; then # exclude ssh pipe etc
-  source $HOME/.dotfiles/zsh/plugins/*.zsh
-  source $HOME/.dotfiles/zsh/plugins/zsh-git-prompt/zshrc.sh
-  source $HOME/.dotfiles/zsh/key_bindings.zsh
-fi
+source $HOME/.dotfiles/zsh/plugins/*.zsh
+source $HOME/.dotfiles/zsh/plugins/zsh-git-prompt/zshrc.sh
+source $HOME/.dotfiles/zsh/key_bindings.zsh
 
 # default prompt
 PROMPT=$' ${gray}%n@%M%b${reset}\n $(git_super_status) %B%.%b %# '
@@ -44,7 +40,7 @@ RPROMPT='' # right side
 [[ -s "$HOME/.local_shell" ]] && . "$HOME/.local_shell"
 
 if (( $+commands[rbenv] )) ; then
-	eval "$(rbenv init -)"
+  eval "$(rbenv init -)"
 fi
 
-t
+st
