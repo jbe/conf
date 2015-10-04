@@ -1,8 +1,12 @@
 #!/usr/bin/env ruby
 
+if system 'has gcalcli'
+  system 'gcalcli agenda'
+end
+
 TODO_PATH = File.join(Dir.home, "me/notes/Viktig")
 
 if File.file?(TODO_PATH) && %x{wc -l #{TODO_PATH}}.split.first.to_i > 2
-  puts "\n  Remember.."
+  puts "  Remember.."
   system "tail -n+4 #{TODO_PATH} | awk '$0=\"  \"$0'"
 end
