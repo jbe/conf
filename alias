@@ -20,6 +20,7 @@ alias ts='tmux split-window'
 
 alias shtop='sudo htop'
 alias v='vim'
+alias g='gvim'
 alias sv='sudo vim'
 
 # Nim build scripts
