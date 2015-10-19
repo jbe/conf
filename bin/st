@@ -4,8 +4,8 @@ if system 'has gcalcli'
   system 'gcalcli agenda'
 end
 
-TODO_PATH = File.join(Dir.home, "me/notes/Viktig")
+TODO_PATH = File.join(Dir.home, "me/notes/TODO")
 
 if File.file?(TODO_PATH) && %x{wc -l #{TODO_PATH}}.split.first.to_i > 2
-  system "tail -n+4 #{TODO_PATH} | awk '$0=\"  \"$0'"
+  system "tail -n+2 #{TODO_PATH} | awk '$0=\"  \"$0'"
 end
