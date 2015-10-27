@@ -26,13 +26,19 @@ alias sv='sudo vim'
 # Nim build scripts
 alias cook='./cook'
 
+# Git
 alias ga='git add'
 alias gc='git commit'
 alias gs='git status'
 #alias gac='git add -A && git commit'
 #alias gacp='git add -A && git commit && git push'
+alias gco='git checkout'
+alias gb='git branch'
 # For vundle:
 alias vim='env GIT_SSL_NO_VERIFY=true vim'
+
+# Ruby
+alias be='bundle exec'
 
 alias uio="ssh -Y josteibe@login.ifi.uio.no"
 alias hemulen="ssh -Y s.jostein.be"
