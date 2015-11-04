@@ -24,6 +24,8 @@ confirm () {
   fi
 }
 
+# TODO: silver searcher
+
 
 # UI
 
