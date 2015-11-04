@@ -1,0 +1,3 @@
+#!/bin/sh
+TARGET=$1
+for i in {0..TARGET}; do eval "$@" ; done
