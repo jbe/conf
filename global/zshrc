@@ -30,7 +30,8 @@ source $(dirname $0)/zsh/plugins/zsh-git-prompt/zshrc.sh
 source $(dirname $0)/zsh/key_bindings.zsh
 
 # default prompt
-PROMPT=$' ${gray}%n@%M%b${reset}\n $(git_super_status) %B%.%b %# '
+# " ${gray}%n@%M%b${reset}\n"
+PROMPT=$' $(git_super_status) %B%.%b %# '
 RPROMPT='' # right side
 
 if (( $+commands[rbenv] )) ; then
