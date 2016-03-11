@@ -1,5 +1,16 @@
 #!/bin/bash
 
+ask () {
+  echo -n "$1 [y/N] "
+  old_stty_cfg=$(stty -g)
+  stty raw -echo ; answer=$(head -c 1) ; stty $old_stty_cfg # Care playing with stty
+  if echo "$answer" | grep -iq "^y" ;then
+    echo; return 0
+  else
+    echo; return 1
+  fi
+}
+
 ask "Install graphical software -- Gvim, Chromium etc..?"
 _graphical=$?
 
