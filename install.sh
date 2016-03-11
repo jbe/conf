@@ -46,6 +46,7 @@ if [ "$_personal" -eq 0 ]; then
 
   # LINK FILES
   ln -f -s ~/conf/linked/zshrc ~/.zshrc
+  ln -f -s ~/conf/linked/zshenv ~/.zshenv
   ln -f -s ~/conf/linked/bashrc ~/.bashrc
   ln -f -s ~/conf/linked/gitconfig ~/.gitconfig
   ln -f -s ~/conf/global/tmux.conf ~/.tmux.conf
