@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# has lolcat && has fortune && has cowsay && fortune | cowsay | lolcat
+has lolcat && has figlet && figlet -f script `hostname` | lolcat
+has gcalcli && gcalcli agenda

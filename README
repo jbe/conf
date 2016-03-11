@@ -6,7 +6,7 @@
                _vv_
             .        .
 
-    {{ «« <[ dotfiles ]> »» }}
+    {{ «« <[   CONF   ]> »» }}
             .        .
                ____
                 ^^
@@ -16,10 +16,10 @@
 
 
 
----
 
-    https://raw.githubusercontent.com/jbe/.dotfiles/master/install.sh
+curl https://raw.githubusercontent.com/jbe/conf/master/install.sh | sh
 
 
-**See also:** [Vim configuration](https://github.com/jbe/.vim)
+See also:
 
+https://github.com/jbe/.vim

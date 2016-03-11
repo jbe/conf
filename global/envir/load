@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source $HOME/conf/global/envir/path
+source $HOME/conf/global/envir/alias
+source $HOME/conf/global/envir/defaults

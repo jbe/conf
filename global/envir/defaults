@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export PAGER="most"
+export EDITOR="vim"
+export RI="--format ansi"

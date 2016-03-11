@@ -6,12 +6,10 @@ else
     alias ls='ls -G'
 fi
 
-# Handy ls shortcuts
 alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls'
 
-# Moving in dirs
 alias ..='cd ..'
 alias ...='cd ../..'
 
@@ -39,8 +37,3 @@ alias vim='env GIT_SSL_NO_VERIFY=true vim'
 
 # Ruby
 alias be='bundle exec'
-
-alias uio="ssh -Y josteibe@login.ifi.uio.no"
-alias hemulen="ssh -Y s.jostein.be"
-alias uiowin="rdesktop -d UiO -f windows.ifi.uio.no"
-alias uiomount="sshfs josteibe@login.ifi.uio.no: /home/jbe/uiodisk -o reconnect,modules=iconv,from_code=ISO-8859-1"

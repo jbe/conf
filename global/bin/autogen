@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ "$#" -lt 3 ]; then
+  echo "Usage: autogen GLOB DIR CMDS... -- serve on localhost:3000 while autobuilding using CMDS in tmux windows"
+else
+  GLOB="$1"
+  shift
+  SERVE="$1"
+  shift
+  TARGET="$@"
+  echo "Serve:  $SERVE"
+  echo "Glob:   $GLOB"
+  echo "Target: $TARGET"
+  tmux new-window -d -n build "filewatcher $GLOB '$TARGET'"
+  tmux new-window -d -n serve "serve $SERVE"
+fi

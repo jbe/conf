@@ -1,6 +1,3 @@
-[user]
-	email = josteinpost@gmail.com
-	name = Jostein Berre Eliassen
 [alias]
 	co = checkout
 	br = branch
