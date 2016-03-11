@@ -35,5 +35,7 @@ alias gb='git branch'
 # For vundle:
 alias vim='env GIT_SSL_NO_VERIFY=true vim'
 
+alias ubuntu='lsb_release -cds'
+
 # Ruby
 alias be='bundle exec'
