@@ -44,12 +44,11 @@ if [ "$_personal" -eq 0 ]; then
   vim +PlugInstall +qa
 
   # LINK FILES
-  ln -s ~/conf/linked/zshrc ~/.zshrc
-  ln -s ~/conf/linked/bashrc ~/.bashrc
-  ln -s ~/conf/linked/gitconfig ~/.gitconfig
-
-  ln -s ~/conf/global/tmux.conf ~/.tmux.conf
-  ln -s ~/conf/global/irbrc ~/.irbrc
+  ln -f -s ~/conf/linked/zshrc ~/.zshrc
+  ln -f -s ~/conf/linked/bashrc ~/.bashrc
+  ln -f -s ~/conf/linked/gitconfig ~/.gitconfig
+  ln -f -s ~/conf/global/tmux.conf ~/.tmux.conf
+  ln -f -s ~/conf/global/irbrc ~/.irbrc
 fi
 
 if [ "$_dev" -eq 0 ]; then
