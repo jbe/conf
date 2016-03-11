@@ -55,7 +55,7 @@ fi
 
 if [ "$_dev" -eq 0 ]; then
   mkdir repos
-  sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev sqlite
+  sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev sqlite nodejs npm phantomjs
 
   # METEOR
   curl https://install.meteor.com/ | sh
