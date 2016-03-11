@@ -1,15 +1,15 @@
 #!/bin/bash
 
 ask "Install graphical software -- Gvim, Chromium etc..?"
-install_graphical=$?
+_graphical=$?
 
 ask "Install developer stuff -- ebenv, meteor, nim, etc...?"
-install_dev=$?
+_dev=$?
 
 ask "Make SSH key, authorize and setup personal config?"
-personal=$?
+_personal=$?
 
-if [ "$personal" -eq 0 ]; then
+if [ "$_personal" -eq 0 ]; then
   ssh-keygen
   echo
   echo "Upload this key to github:"
@@ -24,11 +24,11 @@ cd
 
 sudo apt-get install -y git zsh tmux tree htop most curl wget ctags python-pip silversearcher-ag
 
-if [ "$install_graphical" -eq 0 ]; then
+if [ "$_graphical" -eq 0 ]; then
   sudo apt-get install vim-gnome chromium-browser
 fi
 
-if [ "$personal" -eq 0 ]; then
+if [ "$_personal" -eq 0 ]; then
   # USE ZSH
   echo "Switching to zsh.."
   chsh -s `which zsh`
@@ -47,7 +47,7 @@ if [ "$personal" -eq 0 ]; then
   ln -s ~/conf/global/irbrc ~/.irbrc
 fi
 
-if [ "$install_dev" -eq 0 ]; then
+if [ "$_dev" -eq 0 ]; then
   # METEOR
   curl https://install.meteor.com/ | sh
 
