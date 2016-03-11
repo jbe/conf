@@ -11,24 +11,18 @@ ask () {
   fi
 }
 
-ask "Install graphical software -- Gvim, Chromium etc..?"
+ask "Install graphical software? (Gvim, Chromium..)"
 _graphical=$?
 
-ask "Install developer stuff -- ebenv, meteor, nim, etc...?"
+ask "Install dev stuff? (ebenv, meteor, nim, etc)"
 _dev=$?
 
-ask "Make SSH key, authorize and setup personal config?"
+ask "Setup personal config? ssh, shell, dotfiles"
 _personal=$?
 
 if [ "$_personal" -eq 0 ]; then
   ssh-keygen
-  echo
-  echo "Upload this key to github:"
-  echo
-  cat ~/.ssh/id_rsa.pub
-  echo
-  echo "Press any key after uploading.."
-  read -n
+  curl -u "jbe" --data '{"title":"$(hostname -f)","key":"$(cat ~/.ssh/id_rsa.pub)"}' https://api.github.com/user/keys
 fi
 
 cd
