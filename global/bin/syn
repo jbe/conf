@@ -1,50 +1,5 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env bash
 
-def nasty_require(*gems)
-  gems.each do |gem|
-    begin
-      require gem
-    rescue LoadError
-      puts " > installing #{gem}"
-      system "gem install #{gem}"
-      system $0, *ARGV
-      exit
-    end
-  end
-end
-
-nasty_require(*%w(git-up))
-
-def megasync(*paths, opts)
-  paths.each do |dir|
-    if File.directory? dir
-      puts " > #{dir}"
-      Dir.chdir(dir)
-      GitUp.new.run([])
-      if opts[:hard]
-        if opts[:msg]
-          system "sh -c 'cd #{dir} && git add -A && git commit -m '#{opts[:msg]}' && git push'"
-        else
-          system "sh -c 'cd #{dir} && git add -A && git commit && git push'"
-        end
-      end
-    else
-      puts "Not a directory: #{dir}"
-    end
-  end
-end
-
-def megasync_dir(dir)
-  megasync(*Dir[File.join dir,'*/'], {})
-end
-
-if ARGV.empty?
-  megasync(*%w(.vim .dotfiles .priv).map do |p|
-    File.join(Dir.home, p)
-  end, hard: true)
-  megasync File.join(Dir.home, 'me'), hard: true, msg: 'sync'
-else
-  megasync_dir(ARGV.map {|d| File.expand_path(d) })
-end
-
-
+cd ~/.vim && git pull
+cd ~/conf && git pull
+cd ~/conf/priv && git pull
