@@ -52,13 +52,20 @@ if [ "$_personal" -eq 0 ]; then
 fi
 
 if [ "$_dev" -eq 0 ]; then
+  mkdir repos
+  
   # METEOR
   curl https://install.meteor.com/ | sh
 
   # RBENV
+  git clone https://github.com/rbenv/rbenv.git ~/.rbenv 
+  git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+  cd ~/.rbenv && src/configure && make -C src
+  rehash
+  eval "$(rbenv init -)"
 
   # NIM
-  cd ~/Documents
+  cd ~/repos
   git clone -b master git://github.com/Araq/Nim.git
   cd Nim
   git clone -b master --depth 1 git://github.com/nim-lang/csources
@@ -66,4 +73,5 @@ if [ "$_dev" -eq 0 ]; then
   cd ..
   bin/nim c koch
   ./koch boot -d:release
+  cd
 fi
