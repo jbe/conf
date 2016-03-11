@@ -16,8 +16,7 @@
 
 
 
-
-curl https://raw.githubusercontent.com/jbe/conf/master/install.sh | sh
+bash <(curl -s https://raw.githubusercontent.com/jbe/conf/master/install.sh)
 
 
 See also:
