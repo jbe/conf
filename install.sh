@@ -54,7 +54,7 @@ fi
 
 if [ "$_dev" -eq 0 ]; then
   mkdir repos
-  sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
+  sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev sqlite
 
   # METEOR
   curl https://install.meteor.com/ | sh
