@@ -27,6 +27,7 @@ fi
 
 cd
 
+sudo apt-get update
 sudo apt-get install -y git zsh tmux tree htop most curl wget ctags python-pip silversearcher-ag
 
 if [ "$_graphical" -eq 0 ]; then
@@ -53,7 +54,8 @@ fi
 
 if [ "$_dev" -eq 0 ]; then
   mkdir repos
-  
+  sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
+
   # METEOR
   curl https://install.meteor.com/ | sh
 
