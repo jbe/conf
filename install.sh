@@ -55,13 +55,14 @@ fi
 
 if [ "$_dev" -eq 0 ]; then
   mkdir repos
-  sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev sqlite nodejs npm phantomjs
+  sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev sqlite nodejs nodejs-legacy npm phantomjs cmake zip vim-gnome freeglut3-dev libxinerama-dev libxcursor-dev libxi-dev
+  sudo apt-get build-dep glfw
 
   # METEOR
   curl https://install.meteor.com/ | sh
 
   # RBENV
-  git clone https://github.com/rbenv/rbenv.git ~/.rbenv 
+  git clone https://github.com/rbenv/rbenv.git ~/.rbenv
   git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
   cd ~/.rbenv && src/configure && make -C src
   rehash
