@@ -14,13 +14,14 @@ ask () {
 ask "Install graphical software? (Gvim, Chromium..)"
 _graphical=$?
 
-ask "Install dev stuff? (ebenv, meteor, nim, etc)"
-_dev=$?
-
 ask "Setup personal config? ssh, shell, dotfiles"
 _personal=$?
 
 if [ "$_personal" -eq 0 ]; then
+
+  ask "Install dev stuff? (ebenv, meteor, nim, etc)"
+  _dev=$?
+
   ssh-keygen
   curl -u "jbe" --data '{"title":"$(hostname -f)","key":"$(cat ~/.ssh/id_rsa.pub)"}' https://api.github.com/user/keys
 fi
@@ -65,11 +66,7 @@ if [ "$_dev" -eq 0 ]; then
   git clone https://github.com/rbenv/rbenv.git ~/.rbenv
   git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
   cd ~/.rbenv && src/configure && make -C src
-  rehash
-  eval "$(rbenv init -)"
-  rbenv install 2.3.0
-  rbenv global 2.3.0
-  gem install bundler git-up
+  zsh ~/conf/install.rbenv.zsh
 
   # NIM
   cd ~/repos
