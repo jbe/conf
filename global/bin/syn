@@ -2,4 +2,4 @@
 
 cd ~/.vim && git pull
 cd ~/conf && git pull
-cd ~/conf/priv && git pull
+cd ~/conf/personal && git pull
