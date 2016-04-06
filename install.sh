@@ -42,6 +42,7 @@ if [ "$_personal" -eq 0 ]; then
 
   # GLOBAL CONFIGURATION
   git clone git@github.com:jbe/conf.git # TODO
+  git clone git@gitlab.com:jbe/personal.git ~/conf/personal # TODO
   git clone git@github.com:jbe/.vim.git
   vim +PlugInstall +qa
 
