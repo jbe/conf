@@ -38,6 +38,10 @@ if (( $+commands[rbenv] )) ; then
   eval "$(rbenv init -)"
 fi
 
+# Node version manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
 tmux_running || t
 
 # st
