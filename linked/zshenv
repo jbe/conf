@@ -1,1 +1,2 @@
 source $HOME/conf/global/envir/load
+source $HOME/conf/local/envir/load
