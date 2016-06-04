@@ -11,7 +11,7 @@ ask () {
   fi
 }
 
-ask "Install graphical software? (Gvim, Chromium..)"
+ask "Install graphical software? (Fonts, Gvim, Chromium..)"
 _graphical=$?
 
 ask "Setup personal config? ssh, shell, dotfiles"
@@ -19,7 +19,7 @@ _personal=$?
 
 if [ "$_personal" -eq 0 ]; then
 
-  ask "Install dev stuff? (ebenv, meteor, nim, etc)"
+  ask "Install dev stuff? (ebenv, nim, etc)"
   _dev=$?
 
   ssh-keygen
@@ -33,6 +33,13 @@ sudo apt-get install -y git zsh tmux tree htop most curl wget ctags python-pip s
 
 if [ "$_graphical" -eq 0 ]; then
   sudo apt-get install vim-gnome chromium-browser
+
+  cd ~
+  git clone https://github.com/powerline/fonts.git
+  cd fonts
+  ./install.sh
+  cd ~
+  rm -rf fonts
 fi
 
 if [ "$_personal" -eq 0 ]; then
@@ -60,8 +67,8 @@ if [ "$_dev" -eq 0 ]; then
   sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev sqlite nodejs nodejs-legacy npm phantomjs cmake zip vim-gnome freeglut3-dev libxinerama-dev libxcursor-dev libxi-dev
   sudo apt-get build-dep glfw
 
-  # METEOR
-  curl https://install.meteor.com/ | sh
+  # # METEOR
+  # curl https://install.meteor.com/ | sh
 
   # RBENV
   git clone https://github.com/rbenv/rbenv.git ~/.rbenv
@@ -79,4 +86,14 @@ if [ "$_dev" -eq 0 ]; then
   bin/nim c koch
   ./koch boot -d:release
   cd
+
+  cd ~
+  git clone https://github.com/nim-lang/nimble.git
+  cd nimble
+  git clone -b v0.13.0 --depth 1 https://github.com/nim-lang/nim vendor/nim
+  nim -d:release c -r src/nimble install
+  cd ..
+
 fi
+
+echo "[DONE] Installing stuff"
