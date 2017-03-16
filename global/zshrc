@@ -31,7 +31,7 @@ source $(dirname $0)/zsh/key_bindings.zsh
 
 # default prompt
 # " ${gray}%n@%M%b${reset}\n"
-PROMPT=$' $(git_super_status) %B%.%b %# '
+PROMPT=$' %M %B%.%b$(git_super_status)%# '
 RPROMPT='' # right side
 
 if (( $+commands[rbenv] )) ; then
