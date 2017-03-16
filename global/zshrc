@@ -42,6 +42,6 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-tmux_running || t
+# tmux_running || t
 
 # st
