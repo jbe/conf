@@ -32,9 +32,12 @@ sudo apt-get update
 sudo apt-get install -y git zsh tmux tree htop most curl wget ctags python-pip silversearcher-ag
 
 if [ "$_graphical" -eq 0 ]; then
-  sudo apt-get install vim-gnome chromium-browser
+  sudo apt-get install vim-gnome chromium-browser emacs
 
   cd ~
+  git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+  git clone git@github.com:jbe/.spacemacs.d.git
+
   git clone https://github.com/powerline/fonts.git
   cd fonts
   ./install.sh
@@ -77,22 +80,20 @@ if [ "$_dev" -eq 0 ]; then
   zsh ~/conf/install.rbenv.zsh
 
   # NIM
-  cd ~/repos
-  git clone -b master git://github.com/Araq/Nim.git
-  cd Nim
-  git clone -b master --depth 1 git://github.com/nim-lang/csources
-  cd csources && sh build.sh
-  cd ..
-  bin/nim c koch
-  ./koch boot -d:release
-  cd
-
-  cd ~
-  git clone https://github.com/nim-lang/nimble.git
-  cd nimble
-  git clone -b v0.13.0 --depth 1 https://github.com/nim-lang/nim vendor/nim
-  nim -d:release c -r src/nimble install
-  cd ..
+  # cd ~/repos
+  # git clone -b master git://github.com/Araq/Nim.git
+  # cd Nim
+  # git clone -b master --depth 1 git://github.com/nim-lang/csources
+  # cd csources && sh build.sh
+  # cd ..
+  # bin/nim c koch
+  # ./koch boot -d:release
+  # cd ~
+  # git clone https://github.com/nim-lang/nimble.git
+  # cd nimble
+  # git clone -b v0.13.0 --depth 1 https://github.com/nim-lang/nim vendor/nim
+  # nim -d:release c -r src/nimble install
+  # cd
 
 fi
 
