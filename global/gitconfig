@@ -1,3 +1,6 @@
+[user]
+	email = spam@jostein.be
+	name = Jostein Berre Eliassen
 [alias]
 	co = checkout
 	br = branch

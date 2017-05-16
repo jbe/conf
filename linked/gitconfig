@@ -1,6 +1,0 @@
-[include]
-	path = conf/global/gitconfig
-	path = conf/personal/gitconfig
-[user]
-	email = spam@jostein.be
-	name = Jostein Berre Eliassen

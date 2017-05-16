@@ -25,9 +25,9 @@ blue="%{$fg[blue]%}"
 red="%{$fg[red]%}"
 yellow="%{$fg[yellow]%}"
 
-source $(dirname $0)/zsh/plugins/*.zsh
-source $(dirname $0)/zsh/plugins/zsh-git-prompt/zshrc.sh
-source $(dirname $0)/zsh/key_bindings.zsh
+source $HOME/conf/global/zsh/plugins/*.zsh
+source $HOME/conf/global/zsh/plugins/zsh-git-prompt/zshrc.sh
+source $HOME/conf/global/zsh/key_bindings.zsh
 
 # default prompt
 # " ${gray}%n@%M%b${reset}\n"
