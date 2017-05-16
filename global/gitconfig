@@ -8,4 +8,6 @@
 	st = status
 [push]
 	default = simple
+[pull]
+	rebase = true
 # vim: ft=gitconfig
