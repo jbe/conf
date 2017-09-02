@@ -6,27 +6,16 @@ HISTFILE=$HOME/.zhistory   # enable history saving on shell exit
 HISTSIZE=1200              # lines of history to maintain memory
 SAVEHIST=1000              # lines of history to maintain in history file.
 
-# colorful listings
-zmodload -i zsh/complist
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
 alias mv='nocorrect mv'       # no spelling correction on mv
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
 
 autoload -U colors && colors
-local reset white gray green red
 
-reset="%{${reset_color}%}"
-white="%{$fg[white]%}"
-gray="%{$fg_bold[black]%}"
-green="%{$fg[green]%}"
-blue="%{$fg[blue]%}"
-red="%{$fg[red]%}"
-yellow="%{$fg[yellow]%}"
+# packages
+source $HOME/conf/global/zsh/antigen.zsh
+antigen init $HOME/conf/global/zsh/plugins.zsh
 
-source $HOME/conf/global/zsh/plugins/*.zsh
-source $HOME/conf/global/zsh/plugins/zsh-git-prompt/zshrc.sh
 source $HOME/conf/global/zsh/key_bindings.zsh
 
 # default prompt
@@ -43,4 +32,3 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 t
-tmux_running && st

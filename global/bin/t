@@ -5,7 +5,7 @@
 if has tmux; then
    tmux_running || tmux -2 attach || tmux -2
 else
-  echo " > tmux not available"
+  echo "tmux is not installed"
 fi
 
 
