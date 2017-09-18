@@ -23,6 +23,8 @@ source $HOME/conf/global/zsh/key_bindings.zsh
 PROMPT=$' %M %B%.%b$(git_super_status) %# '
 RPROMPT='' # right side
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 if (( $+commands[rbenv] )) ; then
   eval "$(rbenv init -)"
 fi
@@ -32,3 +34,4 @@ fi
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 t
+st
