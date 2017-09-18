@@ -3,3 +3,6 @@
 export PAGER="most"
 export EDITOR="vim"
 export RI="--format ansi"
+
+export NVM_DIR="$HOME/.nvm"
+

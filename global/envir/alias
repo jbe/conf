@@ -42,5 +42,8 @@ alias vim='env GIT_SSL_NO_VERIFY=true vim'
 
 alias ubuntu='lsb_release -cds'
 
+# SVN
+alias svns='svn status --quiet'
+
 # Ruby
 alias be='bundle exec'
