@@ -1,2 +1,2 @@
-export PATH="$PATH:/opt/idea-IU-163.13906.18/bin"
+export PATH="$PATH:/opt/idea-IU-172.4343.14/bin"
 export XLIB_SKIP_ARGB_VISUALS=1
