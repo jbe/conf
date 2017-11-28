@@ -14,7 +14,9 @@
 
     ^_^              ^_^
 
+ssh-keygen
 
+upload to github
 
 bash <(curl -s https://raw.githubusercontent.com/jbe/conf/master/install.sh)
 

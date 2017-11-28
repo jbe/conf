@@ -14,16 +14,13 @@ ask () {
 ask "Install graphical software? (Fonts, Gvim, Chromium..)"
 _graphical=$?
 
-ask "Setup personal config? ssh, shell, dotfiles"
+ask "Setup personal config? shell, dotfiles"
 _personal=$?
 
 if [ "$_personal" -eq 0 ]; then
 
   ask "Install dev stuff? (ebenv, nim, etc)"
   _dev=$?
-
-  ssh-keygen
-  curl -u "jbe" --data '{"title":"$(hostname -f)","key":"$(cat ~/.ssh/id_rsa.pub)"}' https://api.github.com/user/keys
 fi
 
 cd
