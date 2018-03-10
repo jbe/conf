@@ -1,4 +1,6 @@
 
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
 setopt autocd extendedglob share_history extended_history
 bindkey -v
 
