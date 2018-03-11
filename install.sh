@@ -11,25 +11,34 @@ ask () {
   fi
 }
 
-ask "Install graphical software? (Fonts, Gvim, Chromium..)"
+ask "Install server stuff? (lighttpd, fail2ban)"
+_server=$?
+
+ask "Install graphical software? (fonts, gvim, chromium..)"
 _graphical=$?
 
-ask "Setup personal config? shell, dotfiles"
+ask "Setup personal config? (shell, dotfiles)"
 _personal=$?
 
-if [ "$_personal" -eq 0 ]; then
-
-  ask "Install dev stuff? (ebenv, nim, etc)"
-  _dev=$?
-fi
+ask "Install dev stuff? (ebenv, nim, etc)"
+_dev=$?
 
 cd
 
-sudo apt-get update
-sudo apt-get install -y git zsh tmux tree htop most curl wget ctags python-pip silversearcher-ag
+sudo apt update
+sudo apt install -y git zsh tmux tree htop most curl wget ctags python-pip silversearcher-ag figlet
+
+
+if [ "$_server" -eq 0 ]; then
+
+  sudo apt install -y lighttpd fail2ban
+  sudo truncate -s 0 /var/www/html/index.lighttpd.html
+fi
+
 
 if [ "$_graphical" -eq 0 ]; then
-  sudo apt-get install vim-gnome chromium-browser emacs
+
+  sudo apt install vim-gnome chromium-browser emacs
 
   cd ~
   git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
@@ -43,13 +52,16 @@ if [ "$_graphical" -eq 0 ]; then
 fi
 
 if [ "$_personal" -eq 0 ]; then
+
   # USE ZSH
   echo "Switching to zsh.."
   chsh -s `which zsh`
 
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+
   # GLOBAL CONFIGURATION
-  git clone git@github.com:jbe/conf.git # TODO
-  git clone git@gitlab.com:jbe/personal.git ~/conf/personal # TODO
+  git clone git@github.com:jbe/conf.git
   git clone git@github.com:jbe/.vim.git
   vim +PlugInstall +qa
 
@@ -64,35 +76,22 @@ if [ "$_personal" -eq 0 ]; then
 fi
 
 if [ "$_dev" -eq 0 ]; then
+
   mkdir repos
-  sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev sqlite nodejs nodejs-legacy npm phantomjs cmake zip vim-gnome freeglut3-dev libxinerama-dev libxcursor-dev libxi-dev
-  sudo apt-get build-dep glfw
+  sudo apt install -y libssl-dev libreadline6-dev zlib1g-dev sqlite cmake zip vim-gnome freeglut3-dev libxinerama-dev libxcursor-dev libxi-dev
 
-  # # METEOR
-  # curl https://install.meteor.com/ | sh
 
-  # RBENV
+  # rbenv
+
   git clone https://github.com/rbenv/rbenv.git ~/.rbenv
   git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
   cd ~/.rbenv && src/configure && make -C src
   zsh ~/conf/install.rbenv.zsh
 
-  # NIM
-  # cd ~/repos
-  # git clone -b master git://github.com/Araq/Nim.git
-  # cd Nim
-  # git clone -b master --depth 1 git://github.com/nim-lang/csources
-  # cd csources && sh build.sh
-  # cd ..
-  # bin/nim c koch
-  # ./koch boot -d:release
-  # cd ~
-  # git clone https://github.com/nim-lang/nimble.git
-  # cd nimble
-  # git clone -b v0.13.0 --depth 1 https://github.com/nim-lang/nim vendor/nim
-  # nim -d:release c -r src/nimble install
-  # cd
 
+  # nvm
+
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 fi
 
-echo "[DONE] Installing stuff"
+echo "[DONE] Log in again to see changes"
