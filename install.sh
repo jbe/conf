@@ -14,6 +14,9 @@ ask () {
 ask "Install server stuff? (lighttpd, fail2ban)"
 _server=$?
 
+ask "Configure unattended upgrades?"
+_unattended=$?
+
 ask "Install graphical software? (fonts, gvim, chromium..)"
 _graphical=$?
 
@@ -27,6 +30,12 @@ cd
 
 sudo apt update
 sudo apt install -y git zsh tmux tree htop most curl wget ctags python-pip silversearcher-ag figlet
+
+
+if [ "$_unattended" -eq 0 ]; then
+  sudo apt-get install unattended-upgrades
+  sudo dpkg-reconfigure unattended-upgrades
+fi
 
 
 if [ "$_server" -eq 0 ]; then
