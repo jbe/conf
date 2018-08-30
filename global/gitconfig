@@ -11,3 +11,5 @@
 [pull]
 	rebase = true
 # vim: ft=gitconfig
+[core]
+	autocrlf = false
