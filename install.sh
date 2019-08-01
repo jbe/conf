@@ -17,13 +17,13 @@ _server=$?
 ask "Configure unattended upgrades?"
 _unattended=$?
 
-ask "Install graphical software? (fonts, gvim, chromium..)"
+ask "Install graphical software? (chromium..)"
 _graphical=$?
 
 ask "Setup personal config? (shell, dotfiles)"
 _personal=$?
 
-ask "Install dev stuff? (ebenv, nim, etc)"
+ask "Install dev stuff? (rbenv, etc)"
 _dev=$?
 
 cd
@@ -39,7 +39,6 @@ fi
 
 
 if [ "$_server" -eq 0 ]; then
-
   sudo apt install -y lighttpd fail2ban
   sudo truncate -s 0 /var/www/html/index.lighttpd.html
 fi
@@ -47,17 +46,18 @@ fi
 
 if [ "$_graphical" -eq 0 ]; then
 
-  sudo apt install vim-gnome chromium-browser emacs
+  sudo apt install chromium-browser
+  # sudo apt install vim-gnome emacs
 
-  cd ~
-  git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-  git clone git@github.com:jbe/.spacemacs.d.git
+  # cd ~
+  # git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+  # git clone git@github.com:jbe/.spacemacs.d.git
 
-  git clone https://github.com/powerline/fonts.git
-  cd fonts
-  ./install.sh
-  cd ~
-  rm -rf fonts
+  # git clone https://github.com/powerline/fonts.git
+  # cd fonts
+  # ./install.sh
+  # cd ~
+  # rm -rf fonts
 fi
 
 if [ "$_personal" -eq 0 ]; then
@@ -98,9 +98,10 @@ if [ "$_dev" -eq 0 ]; then
   zsh ~/conf/install.rbenv.zsh
 
 
-  # nvm
+  # install fnm instead of nvm because it is much faster
 
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+  curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash
+
 fi
 
 echo "[DONE] Log in again to see changes"
