@@ -1,11 +1,5 @@
 #!/bin/bash
 
-if ls --version 2>/dev/null | grep -q 'coreutils'; then
-    alias ls='ls --color=auto'
-else
-    alias ls='ls -G'
-fi
-
 alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls'
@@ -25,9 +19,7 @@ alias sv='sudo vim'
 
 alias serve='ruby -run -e httpd'
 
-
-# Nim build scripts
-alias cook='./cook'
+alias ubuntu='lsb_release -cds'
 
 # Git
 alias ga='git add'
@@ -37,13 +29,6 @@ alias gs='git status'
 #alias gacp='git add -A && git commit && git push'
 alias gco='git checkout'
 alias gb='git branch'
-# For vundle:
-alias vim='env GIT_SSL_NO_VERIFY=true vim'
-
-alias ubuntu='lsb_release -cds'
-
-# SVN
-alias svns='svn status --quiet'
 
 # Ruby
 alias be='bundle exec'

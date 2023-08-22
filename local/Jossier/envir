@@ -1,2 +1,0 @@
-export PATH="$PATH:/opt/idea-IU-182.4323.46/bin"
-export XLIB_SKIP_ARGB_VISUALS=1

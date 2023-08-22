@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-has lolcat && has figlet && figlet -f script " " `hostname` | lolcat
-echo " Fuzzy find using fzf:"
-echo
-echo " ctrl-t   files"
-echo " ctrl-r   shell history"
-echo " alt-c    cd to dir"
-echo

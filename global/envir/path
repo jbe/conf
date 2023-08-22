@@ -5,8 +5,4 @@ export PATH="$PATH:$HOME/conf/global/bin"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$PATH:$HOME/.cabal/bin"
-export PATH="$PATH:$HOME/repos/Nim/bin"
-export PATH="$PATH:$HOME/.nimble/bin"
-export PATH="$PATH:$HOME/node_modules/.bin"
-
 export PATH="$HOME/.cargo/bin:$PATH"
