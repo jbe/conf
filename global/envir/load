@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $HOME/conf/local/$HOST/envir
+# source $HOME/conf/local/$HOST/envir
 
 source $HOME/conf/global/envir/path
 source $HOME/conf/global/envir/alias
