@@ -1,3 +1,5 @@
 #!/bin/sh
 
-grep 'cpu[0-9]' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} {printf "%0.0f%% ", usage}'; 
+grep 'cpu[0-9]' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} {printf "%0.0f%% ", usage} END{print ""}'; 
+
+# mpstat -P ALL | awk '$3 ~ /[0-9]+/ {printf "%.0f% ", 100-$13} END{print ""}'
