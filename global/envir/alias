@@ -16,6 +16,7 @@ alias shtop='sudo htop'
 alias v='vim'
 alias g='gvim'
 alias sv='sudo vim'
+alias vim='nvim'
 
 alias serve='ruby -run -e httpd'
 
