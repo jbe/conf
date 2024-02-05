@@ -1,11 +1,5 @@
 #!/bin/bash
 
-local_env="$HOME/conf/local/$HOST/envir"
-
-if [ -f "$local_env" ]; then
-    source "$local_env"
-fi
-
 source $HOME/conf/global/envir/path
 source $HOME/conf/global/envir/alias
 source $HOME/conf/global/envir/settings
