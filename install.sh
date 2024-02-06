@@ -23,7 +23,7 @@ _dev=$?
 cd
 
 sudo apt update
-sudo apt install -y git fish tmux tree htop most curl wget ctags silversearcher-ag figlet
+sudo apt install -y git stow fish tmux tree htop most curl wget ctags silversearcher-ag figlet
 
 
 if [ "$_unattended" -eq 0 ]; then
@@ -42,14 +42,8 @@ if [ "$_personal" -eq 0 ]; then
   vim +PlugInstall +qa
 
   # LINK FILES
-  ln -f -s ~/conf/global/zshrc ~/.zshrc
-  ln -f -s ~/conf/global/zshenv ~/.zshenv
-  ln -f -s ~/conf/global/bashrc ~/.bashrc
-  ln -f -s ~/conf/global/bash_profile ~/.bash_profile
-  ln -f -s ~/conf/global/gitconfig ~/.gitconfig
-  ln -f -s ~/conf/global/tmux.conf ~/.tmux.conf
-  ln -f -s ~/conf/global/irbrc ~/.irbrc
-  ln -f -s ~/conf/global/config.jbe.fish ~/.config/fish/conf.d/config.jbe.fish
+  cd ~/conf/dotfiles
+  stow --target ~ .
 
 fi
 
