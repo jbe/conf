@@ -33,3 +33,6 @@ alias gb='git branch'
 
 # Ruby
 alias be='bundle exec'
+
+# home server
+alias hdmi-play='sudo mpv --audio-device=alsa/hw:0,3'
