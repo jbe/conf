@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Function to convert seconds to HH:MM format
+seconds_to_hhmm() {
+    local seconds=$1
+    printf "%02d:%02d" $((seconds / 3600)) $((seconds % 3600 / 60))
+}
+
+# Check if directory path is provided as an argument, otherwise default to current directory
+directory=${1:-.}
+
+# Ensure the directory exists
+if [ ! -d "$directory" ]; then
+    echo "Error: Directory '$directory' does not exist."
+    exit 1
+fi
+
+# Loop through each movie file in subdirectories
+find "$directory" -type f \( -iname "*.mp4" -o -iname "*.mkv" -o -iname "*.avi" \) -print0 | while IFS= read -r -d '' movie; do
+    # Get movie length using ffprobe
+    duration=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$movie" 2>/dev/null)
+    
+    # Convert duration to HH:MM format
+    duration_formatted=$(seconds_to_hhmm $(printf "%.0f" "$duration"))
+
+    # Get filename without path
+    filename=$(basename "$movie")
+
+    # Output formatted line
+    echo "$duration_formatted $filename"
+done
+

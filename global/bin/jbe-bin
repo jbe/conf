@@ -1,0 +1,118 @@
+#!/bin/bash
+
+scriptsDir="$HOME/conf/global/bin"
+
+if [ -z "$EDITOR" ]; then
+  echo "Error: The EDITOR environment variable is not set."
+  exit 1
+fi
+
+showUsage() {
+  echo "Usage: jbe-bin [command] [arguments]"
+  echo ""
+  echo "Commands:"
+  echo "  ls              Lists all the scripts in the $scriptsDir directory."
+  echo "  add <name>      Creates a new script with the given name, opens it in \$EDITOR, and marks it as executable."
+  echo "  edit <name>     Opens an existing script in \$EDITOR for editing."
+  echo "  rm <name>       Deletes the specified script after confirmation."
+  echo "  rename <oldName> <newName>  Renames a script from oldName to newName, checks for name conflicts."
+  echo "  usage           Displays this usage screen."
+  echo ""
+}
+
+checkDirExists() {
+  if [ ! -d "$scriptsDir" ]; then
+    echo "Error: The scripts directory ($scriptsDir) does not exist."
+    exit 1
+  fi
+}
+
+validateScriptExists() {
+  if [ -z "$1" ]; then
+    echo "Error: Please provide a script name."
+    exit 1
+  fi
+  if [ ! -f "$scriptsDir/$1" ]; then
+    echo "Error: The script '$1' does not exist."
+    exit 1
+  fi
+}
+
+listScripts() {
+  ls -1 "$scriptsDir"
+}
+
+createScript() {
+  local scriptPath="$scriptsDir/$1"
+  if [ -z "$1" ]; then
+    echo "Error: Please provide a script name."
+    exit 1
+  elif [ -f "$scriptPath" ]; then
+    echo "Error: The script '$1' already exists."
+    exit 1
+  else
+    touch "$scriptPath"
+    chmod +x "$scriptPath"
+    $EDITOR "$scriptPath"
+  fi
+}
+
+editScript() {
+  validateScriptExists $1
+  $EDITOR "$scriptsDir/$1"
+}
+
+deleteScript() {
+  validateScriptExists $1
+  read -p "Are you sure you want to delete '$1'? [y/N] " confirm
+  if [[ $confirm =~ ^[Yy]$ ]]; then
+    rm -f "$scriptsDir/$1"
+  fi
+}
+
+renameScript() {
+  local oldPath="$scriptsDir/$1"
+  local newPath="$scriptsDir/$2"
+  if [ -z "$2" ]; then
+    echo "Error: Please provide the new name."
+    exit 1
+  fi
+  validateScriptExists $1
+  if [ -f "$newPath" ]; then
+    echo "Error: A script with the name '$2' already exists."
+    exit 1
+  else
+    mv "$oldPath" "$newPath"
+  fi
+}
+
+# Main logic
+checkDirExists
+
+case "$1" in
+  ls)
+    listScripts
+    ;;
+  add)
+    createScript "$2"
+    ;;
+  edit)
+    editScript "$2"
+    ;;
+  rm)
+    deleteScript "$2"
+    ;;
+  rename)
+    renameScript "$2" "$3"
+    ;;
+  usage)
+    showUsage
+    ;;
+  *)
+    echo "Scripts in $scriptsDir:"
+    echo
+    listScripts
+    echo
+    showUsage
+    ;;
+esac
