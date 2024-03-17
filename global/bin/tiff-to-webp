@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <source_dir> <target_dir>"
+    exit 1
+fi
+
+SOURCE_DIR="$1"
+TARGET_DIR="$2"
+
+find "$SOURCE_DIR" -type f -name "*.tiff" | while read tiff_file; do
+    webp_file="${tiff_file/$SOURCE_DIR/$TARGET_DIR}"
+    webp_file="${webp_file%.tiff}.webp"
+
+    mkdir -p "$(dirname "$webp_file")"
+
+    echo "Converting $tiff_file..."
+
+    # -define webp:lossless=true 
+    convert "$tiff_file" -quality 95 "$webp_file"
+
+    if [ $? -ne 0 ]; then
+        echo "Conversion interrupted, exiting."
+        exit 1
+    fi
+done
+
+
