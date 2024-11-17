@@ -3,3 +3,5 @@
 export PAGER="most"
 export EDITOR="vim"
 export RI="--format ansi"
+
+export NNN_PLUG='z:autojump;'

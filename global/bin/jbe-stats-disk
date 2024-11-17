@@ -1,4 +1,6 @@
 #!/bin/sh
 
 df -h | awk '$NF=="/"{printf "ssd %s/%s (%s)", $3,$2,$5}'
-df -h | awk '$NF=="/home/data/nvme"{printf "  nvme %s/%s (%s) \n", $3,$2,$5}'
+df -h | awk '$NF=="/home/data/nvme"{printf "  nvme %s/%s (%s)", $3,$2,$5}'
+df -h | awk '$NF=="/home/data/t7"{printf "  t7 %s/%s (%s)", $3,$2,$5}'
+echo

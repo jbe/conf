@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Check if an URL was passed
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <URL of subtitle zip file>"
+    exit 1
+fi
+
+url="$1"
+
+# Find the first movie file in the current directory with extended range of extensions
+movie_file=$(ls | grep -E '\.(avi|mp4|mkv|flv|wmv|mov|webm|ogg)$' | head -n 1)
+
+if [ -z "$movie_file" ]; then
+    echo "No movie file found in the current directory."
+    exit 1
+fi
+
+# Create the .srt filename based on the movie file found
+srt_file="${movie_file%.*}.srt"
+
+# Confirm with the user
+echo "The subtitle file will be saved as: $srt_file"
+read -p "Proceed? (y/n): " confirmation
+
+if [[ $confirmation != "y" && $confirmation != "Y" ]]; then
+    echo "Operation cancelled."
+    exit 1
+fi
+
+# Download the zip file, unzip the first file of the archive, and save it as the determined .srt file
+curl -sSL "$url" | funzip > "$srt_file"
+chown :torrenting "$srt_file"
+
+if [ $? -eq 0 ]; then
+    echo "Subtitles downloaded and saved as $srt_file"
+else
+    echo "Failed to download and save subtitles."
+    exit 1
+fi
+
