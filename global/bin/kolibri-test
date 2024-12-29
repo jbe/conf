@@ -1,3 +1,0 @@
-#!/usr/bin/env zsh
-cd ~/repos/ProFile/trunk/dossierprofile-frontend-kolibri
-CHROME_BIN=chromium-browser npm run test-server
